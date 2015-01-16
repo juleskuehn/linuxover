@@ -1,0 +1,49 @@
+# Example zita-lrx configuration
+#
+# Quad-amplified stereo system, Linkwitz-Riley crossovers
+
+
+# Two channels, four frequency bands.
+#
+/zita-lrx       2  4
+
+# Channel names.
+#
+/chann/label    1  L
+/chann/label    2  R
+
+# Output port suffixes.
+#
+/fband/suffix   1  1-Woofer
+/fband/suffix   2  2-Lo-Mid
+/fband/suffix   3  3-Hi-Mid
+/fband/suffix   4  4-Tweetr
+
+# Three filters. The shape is the default.
+/xover/freq     1  64
+/xover/shape    1  -6.0
+/xover/freq     2  512
+/xover/shape    2  -6.0
+/xover/freq     3  4096
+/xover/shape    3  -6.0
+
+# Connect inputs and outputs
+/chann/connect     1 1    system:playback_1
+/chann/connect     1 3    system:playback_7
+/chann/connect     1 4    system:playback_8
+/chann/connect     2 1    system:playback_2
+/chann/connect     2 3    system:playback_3
+/chann/connect     2 4    system:playback_4
+/chann/connect     1 2    system:playback_5
+/chann/connect     2 2    system:playback_6
+
+# These are the defaults, uncomment and change if necessary.
+#
+#/fband/gain     1  0
+#/fband/gain     2  0
+#/fband/gain     3  0
+#/fband/gain     4  0
+#/fband/delay    1  0
+#/fband/delay    2  0
+#/fband/delay    3  0
+#/fband/delay    4  0
